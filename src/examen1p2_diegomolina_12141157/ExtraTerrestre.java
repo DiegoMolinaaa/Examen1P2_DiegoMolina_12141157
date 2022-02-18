@@ -15,13 +15,19 @@ public class ExtraTerrestre extends Persona{
         super();
     }
 
-    public ExtraTerrestre(String nombre, String poder, String debilidad, boolean tieneEscuadron, int fuerza, int agFisica, int agMental) {
-        super(nombre, poder, debilidad, tieneEscuadron, fuerza, agFisica, agMental);
+    public ExtraTerrestre(String nombre, String poder, String debilidad, String heroeOVillano, boolean tieneEscuadron, int fuerza, int agFisica, int agMental) {
+        super(nombre, poder, debilidad, heroeOVillano, tieneEscuadron, fuerza, agFisica, agMental);
     }
+    
 
     @Override
     public String toString() {
         return "ExtraTerrestre:"+super.toString() + '}';
+    }
+
+    @Override
+    public void final_Chance(Persona p1, Persona p2) {
+         
     }
     
 }

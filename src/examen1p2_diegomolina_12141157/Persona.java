@@ -9,10 +9,11 @@ package examen1p2_diegomolina_12141157;
  *
  * @author diego
  */
-public class Persona {
+public class Persona implements Comportamiento {
     private String nombre;
     private String poder;
     private String debilidad;
+    private String HeroeOVillano;
     private boolean tieneEscuadron;
     private int fuerza;
     private int agFisica;
@@ -21,10 +22,11 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String nombre, String poder, String debilidad, boolean tieneEscuadron, int fuerza, int agFisica, int agMental) {
+    public Persona(String nombre, String poder, String debilidad, String heroeOVillano, boolean tieneEscuadron, int fuerza, int agFisica, int agMental) {
         this.nombre = nombre;
         this.poder = poder;
         this.debilidad = debilidad;
+        this.HeroeOVillano = heroeOVillano;
         this.tieneEscuadron = tieneEscuadron;
         this.fuerza = fuerza;
         this.agFisica = agFisica;
@@ -54,6 +56,15 @@ public class Persona {
     public void setDebilidad(String debilidad) {
         this.debilidad = debilidad;
     }
+
+    public String getHeroeOVillano() {
+        return HeroeOVillano;
+    }
+
+    public void setHeroeOVillano(String HeroeOVillano) {
+        this.HeroeOVillano = HeroeOVillano;
+    }
+    
 
     public boolean isTieneEscuadron() {
         return tieneEscuadron;
@@ -89,7 +100,9 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", poder=" + poder + ", debilidad=" + debilidad + ", tieneEscuadron=" + tieneEscuadron + ", fuerza=" + fuerza + ", agFisica=" + agFisica + ", agMental=" + agMental + '}';
+        return "Persona{" + "nombre=" + nombre + ", poder=" + poder + ", debilidad=" + debilidad + ", HeroeOVillano=" + HeroeOVillano + ", tieneEscuadron=" + tieneEscuadron + ", fuerza=" + fuerza + ", agFisica=" + agFisica + ", agMental=" + agMental + '}';
     }
-    
+    public void final_Chance(Persona p1, Persona p2) {
+        
+    }
 }

@@ -16,10 +16,11 @@ public class SuperHumano extends Persona{
         super();
     }
 
-    public SuperHumano(String superPoder, String nombre, String poder, String debilidad, boolean tieneEscuadron, int fuerza, int agFisica, int agMental) {
-        super(nombre, poder, debilidad, tieneEscuadron, fuerza, agFisica, agMental);
+    public SuperHumano(String superPoder, String nombre, String poder, String debilidad, String heroeOVillano, boolean tieneEscuadron, int fuerza, int agFisica, int agMental) {
+        super(nombre, poder, debilidad, heroeOVillano, tieneEscuadron, fuerza, agFisica, agMental);
         this.superPoder = superPoder;
     }
+    
 
     public String getSuperPoder() {
         return superPoder;
@@ -32,6 +33,11 @@ public class SuperHumano extends Persona{
     @Override
     public String toString() {
         return "SuperHumano: "+super.toString() + "superPoder=" + superPoder + '}';
+    }
+
+    @Override
+    public void final_Chance(Persona p1, Persona p2) {
+        
     }
     
 }

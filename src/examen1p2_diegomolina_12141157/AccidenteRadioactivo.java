@@ -17,12 +17,12 @@ public class AccidenteRadioactivo extends Persona{
         super();
     }
 
-    public AccidenteRadioactivo(int edadAccidente, String tipoAccidente, String nombre, String poder, String debilidad, boolean tieneEscuadron, int fuerza, int agFisica, int agMental) {
-        super(nombre, poder, debilidad, tieneEscuadron, fuerza, agFisica, agMental);
+    public AccidenteRadioactivo(int edadAccidente, String tipoAccidente, String nombre, String poder, String debilidad, String heroeOVillano, boolean tieneEscuadron, int fuerza, int agFisica, int agMental) {
+        super(nombre, poder, debilidad, heroeOVillano, tieneEscuadron, fuerza, agFisica, agMental);
         this.edadAccidente = edadAccidente;
         this.tipoAccidente = tipoAccidente;
     }
-
+    
     public int getEdadAccidente() {
         return edadAccidente;
     }
@@ -42,6 +42,11 @@ public class AccidenteRadioactivo extends Persona{
     @Override
     public String toString() {
         return "AccidenteRadioactivo: "+super.toString() + "edadAccidente=" + edadAccidente + ", tipoAccidente=" + tipoAccidente + '}';
+    }
+
+    @Override
+    public void final_Chance(Persona p1, Persona p2) {
+        
     }
     
 }

@@ -15,16 +15,16 @@ public class Escuadrones {
     private String nombre;
     private String base;
     private Persona lider = new Persona();
-    private String tipo;
+    private boolean heroes;
     private ArrayList<Persona> miembros = new ArrayList();
 
     public Escuadrones() {
     }
 
-    public Escuadrones(String nombre, String base, String tipo) {
+    public Escuadrones(String nombre, String base, boolean heroes) {
         this.nombre = nombre;
         this.base = base;
-        this.tipo = tipo;
+        this.heroes = heroes;
     }
 
     public String getNombre() {
@@ -51,12 +51,12 @@ public class Escuadrones {
         this.lider = lider;
     }
 
-    public String getTipo() {
-        return tipo;
+    public boolean getTipo() {
+        return heroes;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipo(boolean heroes) {
+        this.heroes = heroes;
     }
 
     public ArrayList<Persona> getMiembros() {
@@ -69,7 +69,7 @@ public class Escuadrones {
 
     @Override
     public String toString() {
-        return "Escuadrones{" + "nombre=" + nombre + ", base=" + base + ", lider=" + lider + ", tipo=" + tipo + ", miembros=" + miembros + '}';
+        return "Escuadrones{" + "nombre=" + nombre + ", base=" + base + ", miembros=" + miembros + '}';
     }
     
 }

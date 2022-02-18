@@ -15,13 +15,17 @@ public class Normal extends Persona{
         super();
     }
 
-    public Normal(String nombre, String poder, String debilidad, boolean tieneEscuadron, int fuerza, int agFisica, int agMental) {
-        super(nombre, poder, debilidad, tieneEscuadron, fuerza, agFisica, agMental);
+    public Normal(String nombre, String poder, String debilidad, String heroeOVillano, boolean tieneEscuadron, int fuerza, int agFisica, int agMental) {
+        super(nombre, poder, debilidad, heroeOVillano, tieneEscuadron, fuerza, agFisica, agMental);
     }
 
     @Override
     public String toString() {
         return "Normal:"+ super.toString();
+    }
+    @Override
+    public void final_Chance(Persona p1, Persona p2) {
+        
     }
     
 }

@@ -16,10 +16,11 @@ public class Alien extends ExtraTerrestre{
         super();
     }
 
-    public Alien(String planeta, String nombre, String poder, String debilidad, boolean tieneEscuadron, int fuerza, int agFisica, int agMental) {
-        super(nombre, poder, debilidad, tieneEscuadron, fuerza, agFisica, agMental);
+    public Alien(String planeta, String nombre, String poder, String debilidad, String heroeOVillano, boolean tieneEscuadron, int fuerza, int agFisica, int agMental) {
+        super(nombre, poder, debilidad, heroeOVillano, tieneEscuadron, fuerza, agFisica, agMental);
         this.planeta = planeta;
     }
+    
 
     public String getPlaneta() {
         return planeta;
@@ -32,6 +33,11 @@ public class Alien extends ExtraTerrestre{
     @Override
     public String toString() {
         return "Alien: "+super.toString() + "planeta=" + planeta + '}';
+    }
+
+    @Override
+    public void final_Chance(Persona p1, Persona p2) {
+        
     }
     
 }

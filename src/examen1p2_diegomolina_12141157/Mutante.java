@@ -11,17 +11,17 @@ import java.util.ArrayList;
  *
  * @author diego
  */
-public class Mutante extends Persona {
+public class Mutante extends Persona{
     ArrayList<String> factoresMutantes = new ArrayList();
 
     public Mutante() {
         super();
     }
 
-    public Mutante(String nombre, String poder, String debilidad, boolean tieneEscuadron, int fuerza, int agFisica, int agMental) {
-        super(nombre, poder, debilidad, tieneEscuadron, fuerza, agFisica, agMental);
+    public Mutante(String nombre, String poder, String debilidad, String heroeOVillano, boolean tieneEscuadron, int fuerza, int agFisica, int agMental) {
+        super(nombre, poder, debilidad, heroeOVillano, tieneEscuadron, fuerza, agFisica, agMental);
     }
-
+    
     public ArrayList<String> getFactoresMutantes() {
         return factoresMutantes;
     }
@@ -33,6 +33,11 @@ public class Mutante extends Persona {
     @Override
     public String toString() {
         return "Mutante{"+super.toString() + "factoresMutantes=" + factoresMutantes + '}';
+    }
+
+    @Override
+    public void final_Chance(Persona p1, Persona p2) {
+        
     }
     
 }
