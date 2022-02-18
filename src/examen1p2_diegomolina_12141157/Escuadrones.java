@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Escuadrones {
     private String nombre;
     private String base;
-    private Persona lider = new Persona();
+    private Persona lider;
     private boolean heroes;
     private ArrayList<Persona> miembros = new ArrayList();
 

@@ -9,7 +9,7 @@ package examen1p2_diegomolina_12141157;
  *
  * @author diego
  */
-public class Persona implements Comportamiento {
+public abstract class Persona {
     private String nombre;
     private String poder;
     private String debilidad;
@@ -102,7 +102,5 @@ public class Persona implements Comportamiento {
     public String toString() {
         return "Persona{" + "nombre=" + nombre + ", poder=" + poder + ", debilidad=" + debilidad + ", HeroeOVillano=" + HeroeOVillano + ", tieneEscuadron=" + tieneEscuadron + ", fuerza=" + fuerza + ", agFisica=" + agFisica + ", agMental=" + agMental + '}';
     }
-    public void final_Chance(Persona p1, Persona p2) {
-        
-    }
+    public abstract void final_Chance(Persona p1, Persona p2);
 }
