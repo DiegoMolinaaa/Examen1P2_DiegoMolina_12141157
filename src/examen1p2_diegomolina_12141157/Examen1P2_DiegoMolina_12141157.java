@@ -6,6 +6,7 @@
 package examen1p2_diegomolina_12141157;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -22,54 +23,108 @@ public class Examen1P2_DiegoMolina_12141157 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("------------------------------------------");
-        System.out.println("1) Universo");
-        System.out.println("2) Personas");
-        System.out.println("3) Escuadrones");
-        System.out.println("4) Simulacion");
-        System.out.println("5) Salir");
-        System.out.print("Ingrese una opcion: ");
-        int opcion = lea.nextInt();
-        switch(opcion){
-            case 1:{
-                crearUniverso();
-                break;
-            }
-            case 2:{
-                if(universos.isEmpty()){
-                    System.out.println("Debe de Crear un Universo");
+        int opcion=0;
+        while(opcion!=4){
+            System.out.println("------------------------------------------");
+            System.out.println("1) Universo");
+            System.out.println("2) Personas");
+            System.out.println("3) Escuadrones");
+            System.out.println("4) Salir");
+            System.out.print("Ingrese una opcion: ");
+            opcion = lea.nextInt();
+            switch(opcion){
+                case 1:{
+                    int x = menuInternoUniversos();
+                    while(x!=5){
+                        switch(x){
+                            case 1:{
+                                crearUniverso();
+                                break;
+                            }
+                            case 2:{
+                                modificarUniverso();
+                                break;
+                            }
+                            case 3:{
+                                eliminarUniverso();
+                                break;
+
+                            }
+                            case 4:{
+                                listarUniversos();
+                                break;
+                            }
+                            case 5:{
+                                break;
+                            }
+                            default:{
+                                System.out.println("Ingrese una opcion valida");
+                                break;
+                            }
+                        }    
+                    }
+                    break;
                 }
-                else{
-                    
+                case 2:{
+                    if(universos.isEmpty()){
+                        System.out.println("Debe de Crear un Universo");
+                    }
+                    else{
+
+                    }
+                    break;
                 }
-                break;
-            }
-            case 3:{
-                break;
-            }
-            case 4:{
-               break;
-            }
-            case 5:{
-                break;
-            }
-            case 6:{
-                break;
-            }
-            default:{
-                System.out.println("Ingrese una opcion valida");
-                break;
+                case 3:{
+                    break;
+                }
+                case 4:{
+                    System.exit(0);
+                    break;
+                }
+                default:{
+                    System.out.println("Ingrese una opcion valida");
+                    break;
+                }
             }
         }
-    }//fin main
-    public static int menuInterno(){
         
+    }//fin main
+    public static int menuInternoUniversos(){
+        System.out.println("--------------------------");
+        System.out.println("1) Crear Universo");
+        System.out.println("2) Modificar Universo");
+        System.out.println("3) Eliminar Universo");
+        System.out.println("4) Listar Universos");
+        System.out.println("5) Salir");
+        System.out.print("Ingrese una opcion: ");
+        int op = lea.nextInt();
+        System.out.println("--------------------------");
+        return op;
     }
     public static void crearUniverso(){
         System.out.print("Ingrese el nombre del Universo: ");
         lea.nextLine();
         String nomUniverso = lea.nextLine();
         universos.add(new Universo(nomUniverso));
+    }
+    public static void modificarUniverso(){
+        System.out.println("Ingrese el numero del Universo a Modificar [0 a "+(universos.size()-1)+"]: ");
+        int pos = lea.nextInt();
+        System.out.println("Ingrese el nuevo nombre del Universo");
+        lea.nextLine();
+        String nombre = lea.nextLine();
+        universos.get(pos).setNombreUniverso(nombre);
+        System.out.println("Se ha modificado exitosamente");
+    }
+    public static void eliminarUniverso(){
+        System.out.println("Ingrese el numero del Universo a Eliminar [0 a "+(universos.size()-1)+"]: ");
+        int pos = lea.nextInt();
+        universos.remove(pos);
+    }
+    public static void listarUniversos(){
+        for (Universo ob : universos) {
+            System.out.println(universos.indexOf(ob)+"-->"+ob.toString());
+        }
     }
     public static void crearPersona(){
         boolean tieneEscuadron = false;
