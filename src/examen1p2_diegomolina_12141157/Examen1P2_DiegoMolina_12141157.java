@@ -16,7 +16,8 @@ import java.util.Scanner;
 public class Examen1P2_DiegoMolina_12141157 {
     static Scanner lea = new Scanner(System.in);
     static ArrayList<Universo> universos = new ArrayList();
-    static ArrayList<Persona> personas = new ArrayList();
+    static ArrayList<Persona> heroes = new ArrayList();
+    static ArrayList<Persona> villanos = new ArrayList();
     static ArrayList<Escuadrones> squads = new ArrayList();
     /**
      * @param args the command line arguments
@@ -70,11 +71,80 @@ public class Examen1P2_DiegoMolina_12141157 {
                         System.out.println("Debe de Crear un Universo");
                     }
                     else{
-
+                        int x = menuInternoEscuadrones();
+                        while(x!=7){
+                            switch(x){
+                                case 1:{
+                                    crearEscuadron();
+                                    break;
+                                }
+                                case 2:{
+                                    modificarEscuadron();
+                                    break;
+                                }
+                                case 3:{
+                                    eliminarEscuadron();
+                                    break;
+                                }
+                                case 4:{
+                                    listarEscuadron();
+                                    break;
+                                }
+                                case 5:{
+                                    agregarPersonas();
+                                    break;
+                                }
+                                case 6:{
+                                    simular();
+                                    break;
+                                }
+                                case 7:{
+                                    break;
+                                }
+                                default:{
+                                    System.out.println("Ingrese una opcion valida");
+                                    break;
+                                }
+                            }
+                        }
                     }
                     break;
                 }
                 case 3:{
+                    if(universos.isEmpty()){
+                        System.out.println("Debe de Crear un Universo");
+                    }
+                    else{
+                        int x = menuInternoUniversos();
+                        while(x!=5){
+                            switch(x){
+                                case 1:{
+                                    crearPersona();
+                                    break;
+                                }
+                                case 2:{
+                                    modificarPersona();
+                                    break;
+                                }
+                                case 3:{
+                                    eliminarPersona();
+                                    break;
+
+                                }
+                                case 4:{
+                                    listarPersona();
+                                    break;
+                                }
+                                case 5:{
+                                    break;
+                                }
+                                default:{
+                                    System.out.println("Ingrese una opcion valida");
+                                    break;
+                                }
+                            }    
+                        }
+                    }
                     break;
                 }
                 case 4:{
@@ -95,6 +165,32 @@ public class Examen1P2_DiegoMolina_12141157 {
         System.out.println("2) Modificar Universo");
         System.out.println("3) Eliminar Universo");
         System.out.println("4) Listar Universos");
+        System.out.println("5) Salir");
+        System.out.print("Ingrese una opcion: ");
+        int op = lea.nextInt();
+        System.out.println("--------------------------");
+        return op;
+    }
+    public static int menuInternoEscuadrones(){
+        System.out.println("--------------------------");
+        System.out.println("1) Crear Escuadron");
+        System.out.println("2) Modificar Escuadron");
+        System.out.println("3) Eliminar Escuadron");
+        System.out.println("4) Listar Escaudrones");
+        System.out.println("5) Agregar Personas");
+        System.out.println("6) Batallar");
+        System.out.println("7) Salir");
+        System.out.print("Ingrese una opcion: ");
+        int op = lea.nextInt();
+        System.out.println("--------------------------");
+        return op;
+    }
+    public static int menuInternoPersonas(){
+        System.out.println("--------------------------");
+        System.out.println("1) Crear Personas");
+        System.out.println("2) Modificar Personas");
+        System.out.println("3) Eliminar Persona");
+        System.out.println("4) Listar Persona");
         System.out.println("5) Salir");
         System.out.print("Ingrese una opcion: ");
         int op = lea.nextInt();
@@ -152,20 +248,43 @@ public class Examen1P2_DiegoMolina_12141157 {
         int x = miniMenuTipos();
         switch(x){
             case 1:{
-                personas.add(new Normal(nom, poder, debilidad, bando, false, fuerza, hFisica, hMental));
+                if(bando.equalsIgnoreCase("Heroe")){
+                    heroes.add(new Normal(nom, poder, debilidad, bando, false, fuerza, hFisica, hMental));
+                }
+                else if(bando.equalsIgnoreCase("Villano")){
+                    villanos.add(new Normal(nom, poder, debilidad, bando, false, fuerza, hFisica, hMental));
+                }
                 break;
             }
             case 2:{
-                personas.add(new Mutante(nom, poder, debilidad, bando, false, fuerza, hFisica, hMental));
+                if(bando.equalsIgnoreCase("Heroe")){
+                    heroes.add(new Mutante(nom, poder, debilidad, bando, false, fuerza, hFisica, hMental));
+                }
+                else if(bando.equalsIgnoreCase("Villano")){
+                    villanos.add(new Mutante(nom, poder, debilidad, bando, false, fuerza, hFisica, hMental));
+                }
                 char cent2;
-                do{
-                    System.out.println("Ingrese un factor Mutante"); 
-                    lea.nextLine();
-                    String factor =lea.nextLine();
-                    ((Mutante)personas.get(personas.size())).getFactoresMutantes().add(factor);
-                    System.out.println("Desea agregar otro factor Mutante [s/n]: ");
-                    cent2 = lea.next().charAt(0);
-                }while(cent2=='s');
+                if(bando.equalsIgnoreCase("Heroe")){
+                    do{
+                        System.out.println("Ingrese un factor Mutante"); 
+                        lea.nextLine();
+                        String factor =lea.nextLine();
+                        ((Mutante)heroes.get(heroes.size())).getFactoresMutantes().add(factor);
+                        System.out.println("Desea agregar otro factor Mutante [s/n]: ");
+                        cent2 = lea.next().charAt(0);
+                    }while(cent2=='s');
+                }
+                else if(bando.equalsIgnoreCase("Villano")){
+                    do{
+                        System.out.println("Ingrese un factor Mutante"); 
+                        lea.nextLine();
+                        String factor =lea.nextLine();
+                        ((Mutante)villanos.get(villanos.size())).getFactoresMutantes().add(factor);
+                        System.out.println("Desea agregar otro factor Mutante [s/n]: ");
+                        cent2 = lea.next().charAt(0);
+                    }while(cent2=='s');
+                }
+                
                 break;
             }
             case 3:{
@@ -174,14 +293,24 @@ public class Examen1P2_DiegoMolina_12141157 {
                 System.out.print("Ingrese el tipo de accidente que sufrio: ");
                 lea.nextLine();
                 String tipoAcc = lea.nextLine();
-                personas.add(new AccidenteRadioactivo(edad, tipoAcc, nom, poder, debilidad, bando, false, fuerza, hFisica, hMental));
+                if(bando.equalsIgnoreCase("Heroe")){
+                    heroes.add(new AccidenteRadioactivo(edad, tipoAcc, nom, poder, debilidad, bando, false, fuerza, hFisica, hMental));
+                }
+                else if(bando.equalsIgnoreCase("Villano")){
+                    villanos.add(new AccidenteRadioactivo(edad, tipoAcc, nom, poder, debilidad, bando, false, fuerza, hFisica, hMental));
+                }
                 break;
             }
             case 4:{
                 System.out.print("Ingrese el super poder del SuperHumano: ");
                 lea.nextLine();
                 String superpoder = lea.nextLine();
-                personas.add(new SuperHumano(superpoder, nom, poder, debilidad, bando, false, fuerza, hFisica, hMental));
+                if(bando.equalsIgnoreCase("Heroe")){
+                    heroes.add(new SuperHumano(superpoder, nom, poder, debilidad, bando, false, fuerza, hFisica, hMental));
+                }
+                else if(bando.equalsIgnoreCase("Villano")){
+                    villanos.add(new SuperHumano(superpoder, nom, poder, debilidad, bando, false, fuerza, hFisica, hMental));
+                }
                 break;
             }
             case 5:{
@@ -202,14 +331,26 @@ public class Examen1P2_DiegoMolina_12141157 {
                         }
                         System.out.print("Ingrese el nombre de la religion o Mitologia: ");
                         String nomR = lea.nextLine();
-                        personas.add(new Deidad(creyentes, nomR, nom, poder, debilidad, bando, false, fuerza, hFisica, hMental));
+                        if(bando.equalsIgnoreCase("Heroe")){
+                            heroes.add(new Deidad(creyentes, nomR, nom, poder, debilidad, bando, false, fuerza, hFisica, hMental));
+                        }
+                        else if(bando.equalsIgnoreCase("Villano")){
+                            villanos.add(new Deidad(creyentes, nomR, nom, poder, debilidad, bando, false, fuerza, hFisica, hMental));
+                        }
+                        
                         break;
                     }
                     case 2:{
                         System.out.print("Ingrese el nombre del Planeta");
                         lea.nextLine();
                         String planeta = lea.nextLine();
-                        personas.add(new Alien(planeta, nom, poder, debilidad, bando, false, fuerza, hFisica, hMental));
+                        if(bando.equalsIgnoreCase("Heroe")){
+                            heroes.add(new Alien(planeta, nom, poder, debilidad, bando, false, fuerza, hFisica, hMental));
+                        }
+                        else if(bando.equalsIgnoreCase("Villano")){
+                            villanos.add(new Alien(planeta, nom, poder, debilidad, bando, false, fuerza, hFisica, hMental));
+                        }
+                        
                         break;
                     }
                     default:{
@@ -234,6 +375,47 @@ public class Examen1P2_DiegoMolina_12141157 {
         System.out.print("Ingrese una opcion: ");
         int op = lea.nextInt();
         return op;
+    }
+    public static void modificarPersona(){
+        System.out.println("1) Heroe");
+        System.out.println("2) Villano");
+        int op = lea.nextInt();
+        if(op==1){
+            
+        }
+        else if(op==2){
+            
+        }
+    }
+    public static void eliminarPersona(){
+        System.out.println("1) Heroe");
+        System.out.println("2) Villano");
+        int op = lea.nextInt();
+        if(op==1){
+            System.out.println("Ingrese un numero entre [0 a "+(heroes.size()-1)+"]: ");
+            int pos = lea.nextInt();
+            heroes.remove(pos);
+        }
+        else if(op==2){
+            System.out.println("Ingrese un numero entre [0 a "+(villanos.size()-1)+"]: ");
+            int pos = lea.nextInt();
+            villanos.remove(pos);
+        }
+    }
+    public static void listarPersona(){
+        System.out.println("1) Heroe");
+        System.out.println("2) Villano");
+        int op = lea.nextInt();
+        if(op==1){
+            for (Persona ob : heroes) {
+                System.out.println(heroes.indexOf(ob)+"-->"+" Nombre = "+ob.getNombre()+" Poder = "+ob.getPoder());
+            }
+        }
+        else if(op==2){
+            for (Persona ob : villanos) {
+                System.out.println(villanos.indexOf(ob)+"-->"+" Nombre = "+ob.getNombre()+" Debilidad = "+ob.getDebilidad());
+            }
+        }
     }
     
 }
