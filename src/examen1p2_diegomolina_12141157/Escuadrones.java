@@ -69,7 +69,7 @@ public class Escuadrones {
 
     @Override
     public String toString() {
-        return "Escuadrones{" + "nombre=" + nombre + ", base=" + base + ", miembros=" + miembros + '}';
+        return "Escuadrones{" + "nombre=" + nombre + ", base=" + base;
     }
     
 }
