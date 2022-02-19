@@ -36,7 +36,7 @@ public class Examen1P2_DiegoMolina_12141157 {
             switch(opcion){
                 case 1:{
                     int x = menuInternoUniversos();
-                    while(x!=5){
+                    
                         switch(x){
                             case 1:{
                                 crearUniverso();
@@ -63,7 +63,7 @@ public class Examen1P2_DiegoMolina_12141157 {
                                 break;
                             }
                         }    
-                    }
+                    
                     break;
                 }
                 case 2:{
@@ -72,41 +72,40 @@ public class Examen1P2_DiegoMolina_12141157 {
                     }
                     else{
                         int x = menuInternoEscuadrones();
-                        while(x!=7){
-                            switch(x){
-                                case 1:{
-                                    crearEscuadron();
-                                    break;
-                                }
-                                case 2:{
-                                    modificarEscuadron();
-                                    break;
-                                }
-                                case 3:{
-                                    eliminarEscuadron();
-                                    break;
-                                }
-                                case 4:{
-                                    listarEscuadrones();
-                                    break;
-                                }
-                                case 5:{
-                                    agregarPersonas();
-                                    break;
-                                }
-                                case 6:{
-                                    simular();
-                                    break;
-                                }
-                                case 7:{
-                                    break;
-                                }
-                                default:{
-                                    System.out.println("Ingrese una opcion valida");
-                                    break;
-                                }
+                        switch(x){
+                            case 1:{
+                                crearEscuadron();
+                                break;
+                            }
+                            case 2:{
+                                modificarEscuadron();
+                                break;
+                            }
+                            case 3:{
+                                eliminarEscuadron();
+                                break;
+                            }
+                            case 4:{
+                                listarEscuadrones();
+                                break;
+                            }
+                            case 5:{
+                                agregarPersonas();
+                                break;
+                            }
+                            case 6:{
+                                simular();
+                                break;
+                            }
+                            case 7:{
+                                break;
+                            }
+                            default:{
+                                System.out.println("Ingrese una opcion valida");
+                                break;
                             }
                         }
+                        
                     }
                     break;
                 }
@@ -115,35 +114,33 @@ public class Examen1P2_DiegoMolina_12141157 {
                         System.out.println("Debe de Crear un Universo");
                     }
                     else{
-                        int x = menuInternoUniversos();
-                        while(x!=5){
-                            switch(x){
-                                case 1:{
-                                    crearPersona();
-                                    break;
-                                }
-                                case 2:{
-                                    modificarPersona();
-                                    break;
-                                }
-                                case 3:{
-                                    eliminarPersona();
-                                    break;
+                        int x = menuInternoPersonas();
+                        switch(x){
+                            case 1:{
+                                crearPersona();
+                                break;
+                            }
+                            case 2:{
+                                modificarPersona();
+                                break;
+                            }
+                            case 3:{
+                                eliminarPersona();
+                                break;
 
-                                }
-                                case 4:{
-                                    listarPersona();
-                                    break;
-                                }
-                                case 5:{
-                                    break;
-                                }
-                                default:{
-                                    System.out.println("Ingrese una opcion valida");
-                                    break;
-                                }
-                            }    
-                        }
+                            }
+                            case 4:{
+                                listarPersona();
+                                break;
+                            }
+                            case 5:{
+                                break;
+                            }
+                            default:{
+                                System.out.println("Ingrese una opcion valida");
+                                break;
+                            }
+                        }  
                     }
                     break;
                 }
@@ -317,6 +314,9 @@ public class Examen1P2_DiegoMolina_12141157 {
         int pos4 = lea.nextInt();
         universos.get(pos4).getSquads().add(squads.get(pos));
     }
+    public static void simular(){
+        
+    }
     public static void crearPersona(){
         boolean tieneEscuadron = false;
         System.out.print("Ingrese el nombre de la persona: ");
@@ -332,15 +332,15 @@ public class Examen1P2_DiegoMolina_12141157 {
         int fuerza = lea.nextInt();
         System.out.print("Ingrese la habilidad mental de la persona: ");
         int hMental = lea.nextInt();
-        System.out.println("Ingrese la habilidad Fisica de la persona");
+        System.out.print("Ingrese la habilidad Fisica de la persona: ");
         int hFisica = lea.nextInt();
-        System.out.print("1) Normal");
-        System.out.print("2) Mutante");
-        System.out.print("3) Por Accidente Radioactivo");
-        System.out.print("4) SuperHumano");
-        System.out.print("5) ExtraTerrestre");
+        System.out.println("1) Normal");
+        System.out.println("2) Mutante");
+        System.out.println("3) Por Accidente Radioactivo");
+        System.out.println("4) SuperHumano");
+        System.out.println("5) ExtraTerrestre");
         System.out.print("Ingrese una opcion: ");
-        int x = miniMenuTipos();
+        int x = lea.nextInt();
         switch(x){
             case 1:{
                 if(bando.equalsIgnoreCase("Heroe")){
@@ -462,11 +462,11 @@ public class Examen1P2_DiegoMolina_12141157 {
         }
     }
     public static int miniMenuTipos(){
-        System.out.print("1) Normal");
-        System.out.print("2) Mutante");
-        System.out.print("3) Por Accidente Radioactivo");
-        System.out.print("4) SuperHumano");
-        System.out.print("5) ExtraTerrestre");
+        System.out.println("1) Normal");
+        System.out.println("2) Mutante");
+        System.out.println("3) Por Accidente Radioactivo");
+        System.out.println("4) SuperHumano");
+        System.out.println("5) ExtraTerrestre");
         System.out.print("Ingrese una opcion: ");
         int op = lea.nextInt();
         return op;

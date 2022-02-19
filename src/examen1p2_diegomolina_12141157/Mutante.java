@@ -6,12 +6,14 @@
 package examen1p2_diegomolina_12141157;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
  * @author diego
  */
 public class Mutante extends Persona{
+    Random r = new Random();
     ArrayList<String> factoresMutantes = new ArrayList();
 
     public Mutante() {
@@ -37,7 +39,39 @@ public class Mutante extends Persona{
 
     @Override
     public void final_Chance(Persona p1, Persona p2) {
-        
+        if(p1 instanceof Mutante){
+            int x = 0+r.nextInt(2);
+            if(x==0){
+               p1.setFuerza(p1.getFuerza()*4);
+               int y = 0+r.nextInt(1);
+               if(y==0){
+                   p1.setAgFisica(p1.getFuerza()/2);
+               }
+               else if(y==1){
+                   p1.setAgMental(p1.getAgMental()/2);
+               }
+            }
+            else if(x==1){
+                p1.setAgFisica(p1.getAgFisica()*4);
+                int y = 0+r.nextInt(1);
+                if(y==0){
+                   p1.setAgFisica(p1.getFuerza()/2);
+               }
+               else if(y==1){
+                   p1.setFuerza(p1.getFuerza()/2);
+               }
+            }
+            else if(x==2){
+                p1.setAgMental(p1.getAgMental()*4);
+                int y = 0+r.nextInt(1);
+                if(y==0){
+                   p1.setAgFisica(p1.getFuerza()/2);
+               }
+               else if(y==1){
+                   p1.setFuerza(p1.getFuerza()/2);
+               }
+            }
+        }    
     }
     
 }
